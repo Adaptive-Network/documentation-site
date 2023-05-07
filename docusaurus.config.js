@@ -11,10 +11,10 @@ const config = {
   favicon: 'img/favicon.ico',
   trailingSlash:false,
   // Set the production url of your site here
-  url: 'https://adaptive-network.github.io',
+  url: 'https://docs.theadaptivenetwork.org',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/documentation-site/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
