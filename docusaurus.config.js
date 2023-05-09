@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'The Adaptive Network',
   tagline: 'Documentation. All in one place.',
-  favicon: 'img/logo-light.svg',
+  favicon: 'img/logo-dark.svg',
   trailingSlash:false,
   // Set the production url of your site here
   url: 'https://docs.theadaptivenetwork.org',
@@ -101,16 +101,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://discord.gg/Q8ZNquthxg',
               },
             ],
           },
@@ -123,12 +115,12 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/Adaptive-Network',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Adapative Network Docs - Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
