@@ -132,6 +132,10 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    customFields: {
+      subtitle: "Docs",
+      company: "Adaptive Network",
+    },
   } satisfies Preset.ThemeConfig,
 };
 

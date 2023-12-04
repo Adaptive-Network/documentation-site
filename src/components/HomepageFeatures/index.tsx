@@ -1,67 +1,98 @@
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import clsx from "clsx";
+import Heading from "@theme/Heading";
+import styles from "./styles.module.css";
+import { useColorMode } from "@docusaurus/theme-common";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  SVGLight: React.ComponentType<React.ComponentProps<"svg">>;
+  SVGDark: React.ComponentType<React.ComponentProps<"svg">>;
   description: JSX.Element;
+  link: string;
+};
+
+const FeatureComponent = (Content: FeatureItem) => {
+  const theme = useColorMode();
+  const color = theme.isDarkTheme ? "#1b1b1d" : "#ffffff";
+  const hoverColor = theme.isDarkTheme ? "#232326" : "#d9d9d9";
+
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+  };
+
+  const backgroundColor = hovered ? hoverColor : color;
+
+  const Svg = theme.isDarkTheme ? Content.SVGDark : Content.SVGLight;
+
+  return (
+    <Link
+      to={Content.link}
+      className={clsx("col col--6")}
+      style={{
+        textDecoration: "none",
+        paddingLeft: "3rem",
+        paddingRight: "3rem",
+        backgroundColor: backgroundColor,
+        borderRadius: "1rem",
+      }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div>
+        <div className="text--center">
+          <Svg className={styles.featureSvg} role="img" />
+          <div>
+            <Heading as="h3">{Content.title}</Heading>
+            <p>{Content.description}</p>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: "Hoptimize",
+    SVGLight: require("@site/static/img/an_hoptimize-icon_green.svg").default,
+    SVGDark: require("@site/static/img/an_hoptimize-icon_white.svg").default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Hoptimize is a grasshopper plugin that makes using, analysing, debugging
+        and reporting on the use of Grasshopper a breeze.
       </>
     ),
+    link: "/docs/hoptimize/intro",
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: "Scientia",
+    SVGLight: require("@site/static/img/an_scientia_logo_green.svg").default,
+    SVGDark: require("@site/static/img/an_scientia_logo_white.svg").default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Scientia is a knowledge management platform that enables users to
+        assemble knowledge networks from a variety of sources and media.
       </>
     ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    link: "/docs/scientia/intro",
   },
 ];
-
-function Feature({title, Svg, description}: FeatureItem) {
-  return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-      </div>
-    </div>
-  );
-}
 
 export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
-      <div className="container">
-        <div className="row">
+      <div className="container" style={{ width: "100%" }}>
+        <div className="row margin--md">
           {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+            <FeatureComponent key={idx} {...props} />
           ))}
         </div>
       </div>
