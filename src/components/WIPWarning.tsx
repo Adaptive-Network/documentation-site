@@ -17,35 +17,57 @@ const WIPWarning = ({ header, message, url, status_url }) => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        height: "40vh", // Full height of the viewport
+        height: "60vh", // Full height of the viewport
       }}
-      className="card"
+      className="hazard-pattern card"
     >
-      <h1
+      <div
         style={{
-          color: colorMode.isDarkTheme ? "#fff" : "#000",
-          fontSize: "36px",
+          backgroundColor: "white",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          color: "black",
         }}
+        className="card padding--lg margin--lg"
       >
-        🚧 {header} 🚧
-      </h1>
-      <div className="padding-bottom--md">{message}</div>
-      <div className="padding-bottom--md">
-        For updates, follow along on our{" "}
-        <a href={status_url} target="_blank">
-          dev blog
-        </a>
-      </div>
-      <div className="padding-bottom--md padding-top--lg">
-        For support please{" "}
-        <a
-          href="mailto:hello@theadaptivenetwork.org"
-          target="_blank"
-          rel="noopener noreferrer"
+        <h1
+          style={{
+            color: "black",
+            fontSize: "36px",
+          }}
         >
-          reach out to us
-        </a>
-        🤝
+          🚧 {header} 🚧
+        </h1>
+        <div className="padding-bottom--md">{message}</div>
+        <div className="padding-bottom--md">
+          For updates, follow along on our{" "}
+          <a
+            href={status_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#c7b90e",
+            }}
+          >
+            dev blog
+          </a>
+        </div>
+        <div className="padding-bottom--md padding-top--lg">
+          For support please{" "}
+          <a
+            href="mailto:hello@theadaptivenetwork.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "#c7b90e",
+            }}
+          >
+            reach out to us
+          </a>{" "}
+          🤝
+        </div>
       </div>
     </div>
   );

@@ -28,3 +28,15 @@
   --ifm-color-primary-lightest: #ffffff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.hazard-pattern {
+  background-color: yellow;
+  overflow: hidden;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgb(55, 55, 55) 10px,
+    rgb(55, 55, 55) 20px
+  );
+}

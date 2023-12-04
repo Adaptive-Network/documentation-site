@@ -5,7 +5,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 const config: Config = {
   title: "Docs",
   tagline: "",
-  favicon: "img/logo_v2_icon_green_white.ico",
+  favicon: "img/logo_v2_icon_white_small.ico",
 
   // Set the production url of your site here
   url: "https://docs.theadaptivenetwork.org",
